@@ -19,7 +19,7 @@ The API can be used from central repository:
 ```
 
 ## Components
-**ShrikeIoC** manages the concept of components, a component is a java annotated class (with the **@Component** annotation), **ShrikeIoC** will instantiate this class for you when it is required. A component class may be declared as public, but if you desire to hide the class from other package it may be declared as package private too. A **ShrikeIoC** component looks like this:
+**ShrikeIoC** manages the concept of components, a component is a java annotated class (with the **@Component** annotation), **ShrikeIoC** will instantiate this class for you when it is required. A component class may be declared as public, but if you desire to hide the class from other package it may be declared as private too. A **ShrikeIoC** component looks like this:
 ```java
 import com.github.gilbva.shrikeioc.annotations.Component;
 
@@ -52,7 +52,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        Ioc.context().find(MyComponent.class);
+        Ioc.find(MyComponent.class);
     }
 }
 ```
