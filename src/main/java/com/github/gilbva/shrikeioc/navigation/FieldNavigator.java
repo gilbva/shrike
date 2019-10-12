@@ -22,11 +22,9 @@ import java.lang.reflect.Field;
 /**
  * Functional interface used by {@link ClassRepository} for navigating annotated
  * fields in the inversion of control context.
- * <p>
  *
  * @param <A> The annotation that the fields must have in other to be accept by
  *            the navigator.
- *
  * @author Gilberto Vento
  */
 @FunctionalInterface

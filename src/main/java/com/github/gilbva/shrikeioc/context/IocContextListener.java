@@ -27,54 +27,53 @@ package com.github.gilbva.shrikeioc.context;
  * methods of the interface in the propper place.
  * </p>
  *
- * @author Gilberto Vento
- *
  * @param <T> Component class that you want listen.
  *            <p>
  *            <b>EXAMPLES</b>
  *            <pre>
- *                       <code>&#64;Component
- *                       class MyContextListener implement ContextListener&lt;MyComponent&gt;
- *                       {
- *                            public void preCreateComponent(Class&lt;MyComponent&gt;; component)
- *                            {
- *                                //only is call when MyComponent is pre create
- *                            }
+ *                                  <code>&#64;Component
+ *                                  class MyContextListener implement ContextListener&lt;MyComponent&gt;
+ *                                  {
+ *                                       public void preCreateComponent(Class&lt;MyComponent&gt;; component)
+ *                                       {
+ *                                           //only is call when MyComponent is pre create
+ *                                       }
  *
- *                            public void preInitComponent(Class&lt;MyComponent&gt; component)
- *                            {
- *                                //only is call when MyComponent is pre init
- *                            }
+ *                                       public void preInitComponent(Class&lt;MyComponent&gt; component)
+ *                                       {
+ *                                           //only is call when MyComponent is pre init
+ *                                       }
  *
- *                            public void postInitComponent(Class&lt;MyComponent&gt; component)
- *                            {
- *                                //only is call when MyComponent is post init
- *                            }
- *                       }</code>
- *                       </pre>
+ *                                       public void postInitComponent(Class&lt;MyComponent&gt; component)
+ *                                       {
+ *                                           //only is call when MyComponent is post init
+ *                                       }
+ *                                  }</code>
+ *                                  </pre>
  *            <p>
  *            If you want to listen to all components use Object
  *            </p>
  *            <pre>
- *                       <code>&#64;Component
- *                       class MyContextListener implement ContextListener&lt;Object&gt;
- *                       {
- *                            public void preCreateComponent(Class&lt;Object&gt; component)
- *                            {
- *                                //is call for each component pre create
- *                            }
+ *                                  <code>&#64;Component
+ *                                  class MyContextListener implement ContextListener&lt;Object&gt;
+ *                                  {
+ *                                       public void preCreateComponent(Class&lt;Object&gt; component)
+ *                                       {
+ *                                           //is call for each component pre create
+ *                                       }
  *
- *                            public void preInitComponent(Class&lt;Object&gt; component)
- *                            {
- *                                //is call for each component pre init
- *                            }
+ *                                       public void preInitComponent(Class&lt;Object&gt; component)
+ *                                       {
+ *                                           //is call for each component pre init
+ *                                       }
  *
- *                            public void postInitComponent(Class&lt;Object&gt; component)
- *                            {
- *                                //is call for each component post init
- *                            }
- *                       }</code>
- *                       </pre>
+ *                                       public void postInitComponent(Class&lt;Object&gt; component)
+ *                                       {
+ *                                           //is call for each component post init
+ *                                       }
+ *                                  }</code>
+ *                                  </pre>
+ * @author Gilberto Vento
  */
 public interface IocContextListener<T> {
     /**

@@ -317,7 +317,7 @@ public class ClassUtils {
      * @return The int value of the priority, by default the priority will be
      * Integer.MAX_VALUE if not especified directly in the component.
      */
-     static int findPriority(Class<?> cls) {
+    static int findPriority(Class<?> cls) {
         var a1 = cls.getAnnotation(Priority.class);
         var v1 = Integer.MAX_VALUE;
         if (a1 != null) {

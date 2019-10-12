@@ -26,7 +26,6 @@ import java.lang.annotation.Annotation;
  * @param <A> The annotation that classes must have in other to be accept by
  *            the navigator.
  * @param <T> The type for the component that will be accepted by this navigator.
- *
  * @author Gilberto Vento
  */
 @FunctionalInterface
@@ -34,7 +33,6 @@ public interface ClassNavigator<A extends Annotation, T> {
     /**
      * This method is call when ever a class if found to have the given
      * annotation.
-     * <p>
      *
      * @param component  The class of the component found.
      * @param annotation The instance of the annotation of the component.

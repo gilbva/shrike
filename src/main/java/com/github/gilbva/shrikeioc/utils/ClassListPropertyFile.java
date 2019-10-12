@@ -99,7 +99,6 @@ public abstract class ClassListPropertyFile extends AbstractProcessor {
      *
      * @param key   The full class name of the component to append
      * @param value The scope of the component
-     *              <p>
      * @throws IOException If any IO error prevents the writing.
      */
     protected void appendProperty(String key, String value) throws IOException {

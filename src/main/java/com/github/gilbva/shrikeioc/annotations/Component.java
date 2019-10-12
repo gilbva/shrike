@@ -37,7 +37,6 @@ import java.lang.annotation.Target;
 public @interface Component {
     /**
      * Defines the scope of a component.
-     * <p>
      *
      * @return The class that represents the scope of the component.
      */
@@ -45,7 +44,6 @@ public @interface Component {
 
     /**
      * If the component must be instantiate eager or lazy
-     * <p>
      *
      * @return true the component will be instantiated eager, the default is
      * false witch means that the component will be instantiated lazy

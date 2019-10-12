@@ -38,7 +38,7 @@ public class IocContextFactoryImpl implements IocContextFactory {
     }
 
     public static IocContextFactory getInstance() {
-        if(INSTANCE == null) {
+        if (INSTANCE == null) {
             INSTANCE = new IocContextFactoryImpl();
         }
         return INSTANCE;

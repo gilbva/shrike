@@ -33,7 +33,6 @@ import java.lang.reflect.Type;
  * you want.
  *
  * @param <S> The type for the scope class for this context.
- *
  * @author Gilberto Vento
  */
 public interface IocContext<S extends Scope> {
@@ -62,7 +61,6 @@ public interface IocContext<S extends Scope> {
      *                should find.
      * @param service The class that represents the service that this method
      *                must find.
-     *                <p>
      * @return An object that extends or implement the class of the service
      * provided, or null if no component provides this services in the context.
      */
@@ -77,10 +75,8 @@ public interface IocContext<S extends Scope> {
      *                 should find.
      * @param service  The class that represents the service that this method
      *                 must find.
-     *                 <p>
      * @param priority The given component must have a priority value greater
      *                 than this parameter.
-     *                 <p>
      * @return An object that extends or implement the class of the service
      * provided, or null if no component provides this services in the context.
      */
@@ -94,7 +90,6 @@ public interface IocContext<S extends Scope> {
      *                should find.
      * @param service The class that represents the service that this method
      *                must find.
-     *                <p>
      * @return An array of objects who extends or implement the class of the
      * service provided, or an empty array if no component provides this
      * services in the context.
@@ -108,7 +103,6 @@ public interface IocContext<S extends Scope> {
      *
      * @param service The {@link java.lang.reflect.Type} that represents the
      *                service that this method must find.
-     *                <p>
      * @return An object that extends or implement the service provided, or null
      * if no component provides this services in the context.
      */
@@ -121,10 +115,8 @@ public interface IocContext<S extends Scope> {
      *
      * @param service  The {@link java.lang.reflect.Type} that represents the
      *                 service that this method must find.
-     *                 <p>
      * @param priority The given component must have a priority value greater
      *                 than this parameter.
-     *                 <p>
      * @return An object that extends or implement the service provided, or null
      * if no component provides this services in the context.
      */
@@ -136,7 +128,6 @@ public interface IocContext<S extends Scope> {
      * <p>
      *
      * @param service The type of the service to look for.
-     *                <p>
      * @return {@literal true} If at least one component provides this service,
      * {@literal false} otherwise.
      */
@@ -147,7 +138,6 @@ public interface IocContext<S extends Scope> {
      * <p>
      *
      * @param component The class of the component to look for.
-     *                  <p>
      * @return {@literal true} If this class represents a component of the
      * context, {@literal false} otherwise.
      */
