@@ -256,7 +256,7 @@ If you have several components implementing the same service and you like to inj
 
 All the work of the frameworks happends in a context, a context is the container in wich components are created and mapped to each other. the default context is the **APPLICATION** context it´s represented by the org.bridje.ioc.Application class and it can be obtained with the **ShrikeIoc.context()** method.
 ```java
-IocContext<Application> appContext = Ioc.context();
+IocContext<Application> appContext = ShrikeIoc.context();
 ```
 
 The context may be injected also on any component like this:
@@ -271,7 +271,7 @@ class MyComponent
 ```
 
 ## Scopes 
-And scope is a class that determines which components are handled in a context. The scopes need to implement the com.github.gilbva.shrikeioc.annotations.Scope interface like this:
+And scope is a class that determines which components are handled in a context. The scopes need to implement the **com.github.gilbva.shrikeioc.annotations.Scope** interface like this:
 
 ```java
 public class MyScopeObject implements Scope
@@ -297,7 +297,7 @@ public class MyScopeObject implements Scope
 ```
 
 ## Child Contexts
-All context have a scope, the default context is the Application scoped context, only one Application context may exists as there is no way to create another. But you may create as many scopes as you want, and as many context as you want for tree scopes. 
+All context have a scope, the default context is the Application scoped context, only one Application context may exists as there is no way to create another. But you may create as many scopes as you want, and as many context as you want for these scopes. 
 
 The @Component annotation can specify on with scope this component must be created.
 ```java
@@ -305,7 +305,7 @@ The @Component annotation can specify on with scope this component must be creat
 class SomeComponent
 ```
 
-This component will not be available from the IocContext<Application> context, which means that a child context must be created with the MyScopeObject scope, as this.
+This component will not be available from the IocContext<Application> context, which means that a child context must be created with the **MyScopeObject** scope, as this.
 
 ```java
 IocContext<MyScopeObject> childContext = Ioc.context().createChildContext(new MyScopeObject());
