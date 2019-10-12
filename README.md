@@ -52,7 +52,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        Ioc.find(MyComponent.class);
+        ShrikeIoc.find(MyComponent.class);
     }
 }
 ```
@@ -95,7 +95,8 @@ class OtherComponent
     }
 }
 ```
-All components must have a default constructor otherwise the component cannot be created. The framework will try any component without a default constructor as if it does not exists.
+
+All components must have a default constructor otherwise the component cannot be created. The framework will treat any component without a default constructor as if it does not exists.
 
 ```java
 import com.github.gilbva.shrikeioc.annotations.Component;
@@ -107,7 +108,7 @@ class OtherComponent
     public OtherComponent(String str)
     {
         // This component cannot be created as it does not have a default constructor, a call to
-        // Ioc.context().find(OtherComponent.class) will result in null
+        // ShrikeIoc.find(OtherComponent.class) will result in null
         // And injection will not work either @Inject OtherComponent comp; will result in null as well.
     }
 }
@@ -134,7 +135,7 @@ class MyComponent implements MyService
 }
 ```
 
-In this case the MyComponent component provides the MyService interface, what this means is that you can inject MyService in any other component without need to know that MyComponent class even exist.
+In this case the MyComponent component provides the MyService interface, what this means is that you can inject MyService in any other component without the need to know that MyComponent class even exist.
 ```java
 @Component
 class OtherComponent
@@ -149,10 +150,11 @@ class OtherComponent
     }
 }
 ```
+
 The purpose of **ShrikeIoC** is to provide this kind of behavior of loose coupling. So you can write components depending on the specifications and not the implementation.
 
 ## Generic Services
-The services can be generic types and **ShrikeIoC** will take notice of this, so you can have something like this:
+The services can be generic types and **ShrikeIoC** will take notice of this, so you can have something like the following:
 ```java
 public interface MyService<T>
 {
@@ -178,7 +180,7 @@ class OtherComponent
     @PostConstruct
     public void init()
     {
-        serv.doSomething("Bridje IoC Framework");
+        serv.doSomething("ShrikeIoC Framework");
     }
 }
 ```
@@ -233,6 +235,7 @@ private List<MyService> serv;
 private Set<MyService> serv;
 
 ```
+
 ## Component priority
 In this case the framework will inject MyComponent1 and MyComponent2 on the serv field; you can then use it as you like: iterate, add, remove, etc. The order will not be defined in this example, but if the components needs to be in a specific order that must be specified in it's priorities, like this:
 ```java
@@ -268,7 +271,7 @@ class MyComponent
 ```
 
 ## Scopes 
-And scope is a class that determines which components are handled in a context. The scopes need to implement the org.bridje.ioc.Scope interface like this:
+And scope is a class that determines which components are handled in a context. The scopes need to implement the com.github.gilbva.shrikeioc.annotations.Scope interface like this:
 
 ```java
 public class MyScopeObject implements Scope
@@ -323,7 +326,7 @@ SomeComponent someComp = childContext.find(SomeComponent.class);
 ## @InjectNext annotation
 The InjectNext annotation was created to allow the chain of responsability pattern into the components.
 
-**When to use the Chain of Responsability Pattern:**
+**When to use the Chain of Responsability Pattern**:
 
    - More than one objects may handle a request, and the handler isn’t known a priori. The handler should be ascertained automatically.
    -You want to issue a request to one of several objects without specifying the receiver explicitly.
@@ -346,17 +349,14 @@ In this pattern exist three important elements:
 When a client issues a request, the request propagates along the chain until a ConcreteHandler object takes responsibility for
 handling it.
 
-
 Then to use the InjectNext annotation you must create some common interface to all the components in the chain, like this.
 
 ```java
-public interface MyChainHandler<T>    //This interface is the **Handler**.
+public interface MyChainHandler<T>    //This interface is the Handler.
 {
     T execute(T prev);
 }
 ```
-
-
 
 Then you can create as many components as you whant for the chain. 
 Every implementation of components represent the **ConcreteHandler** element.
@@ -410,7 +410,7 @@ public class ChainHandlerThird implements MyChainHandler<String>
 }
 ```
 
-Notice that all the components in the chain inject the **MyChainHandler<String> next;** component, with the @InjectNext annotation, the framework will inject the next available component in the chain, this is a component that provides the same service and that has a lesser priority (a higher number) than the current component. By using this pattern you can inject components one inside the others creating a chain.
+Notice that all the components in the chain inject the **MyChainHandler<String> next;** component, with the **@InjectNext** annotation, the framework will inject the next available component in the chain, this is a component that provides the same service and that has a lesser priority (a higher number) than the current component. By using this pattern you can inject components one inside the others creating a chain.
 
 ```
 ChainHandlerFirst -> ChainHandlerSecond -> ChainHandlerThird
