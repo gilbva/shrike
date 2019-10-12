@@ -26,6 +26,8 @@ import com.github.gilbva.shrikeioc.scope.Application;
 
 /**
  * Factory object to create the application context.
+ *
+ * @author Gilberto Vento
  */
 public class IocContextFactoryImpl implements IocContextFactory {
     private static final Logger LOG = Logger.getLogger(IocContextFactoryImpl.class.getName());

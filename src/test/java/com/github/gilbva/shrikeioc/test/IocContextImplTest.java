@@ -16,7 +16,7 @@
 
 package com.github.gilbva.shrikeioc.test;
 
-import com.github.gilbva.shrikeioc.Shrike;
+import com.github.gilbva.shrikeioc.ShrikeIoC;
 import com.github.gilbva.shrikeioc.test.chain.ChainTest;
 import com.github.gilbva.shrikeioc.test.comps.ComponentChild;
 import com.github.gilbva.shrikeioc.test.comps.SomeService;
@@ -45,25 +45,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-/**
- * FIX: Tests cannot be run, right now the Context cannot read the ioc-components.properties file in the test classes.
- */
 public class IocContextImplTest {
     @Test
     public void testFind() {
-        var instance = Shrike.context();
+        var instance = ShrikeIoC.context();
         var result = instance.find(DummyComponent.class);
         assertNotNull(result);
     }
 
     @Test
     public void testFindByService() {
-        var instance = Shrike.context();
-        var result = instance.find(SomeService.class);
+        var result = ShrikeIoC.find(SomeService.class);
         assertNotNull(result);
         assertTrue(result instanceof DummyServiceProvider);
 
-        var resultArr = instance.findAll(SomeService.class);
+        var resultArr = ShrikeIoC.findAll(SomeService.class);
         assertNotNull(resultArr);
         assertEquals(2, resultArr.length);
         assertTrue(resultArr[0] instanceof DummyServiceProvider);
@@ -72,8 +68,7 @@ public class IocContextImplTest {
 
     @Test
     public void testInjectAndHerarchy() {
-        var instance = Shrike.context();
-        var conComp = instance.find(ConcreteComponent.class);
+        var conComp = ShrikeIoC.find(ConcreteComponent.class);
         assertNotNull(conComp.getDummyComponent());
         assertNotNull(conComp.getServices());
         assertTrue(conComp.getServices()[0] instanceof DummyServiceProvider);
@@ -82,8 +77,7 @@ public class IocContextImplTest {
 
     @Test
     public void testInjectGeneric() {
-        var instance = Shrike.context();
-        var giComp = instance.find(GenericInjectComponent.class);
+        var giComp = ShrikeIoC.find(GenericInjectComponent.class);
         assertNotNull(giComp);
         assertNotNull(giComp.getGsOfStr());
         assertNull(giComp.getGsOfObject());
@@ -94,30 +88,25 @@ public class IocContextImplTest {
 
     @Test
     public void testPriority() {
-        var instance = Shrike.context();
-        var prorityArr = instance.findAll(PriorityService.class);
+        var prorityArr = ShrikeIoC.findAll(PriorityService.class);
         assertTrue(prorityArr[0] instanceof PriorityComp3);
         assertTrue(prorityArr[1] instanceof PriorityComp1);
         assertTrue(prorityArr[2] instanceof PriorityComp4);
         assertTrue(prorityArr[3] instanceof PriorityComp2);
 
-        assertTrue(instance.find(PriorityService.class) instanceof PriorityComp3);
+        assertTrue(ShrikeIoC.find(PriorityService.class) instanceof PriorityComp3);
     }
 
     @Test
     public void testChain() {
-        var instance = Shrike.context();
-
-        var chainTest = instance.find(ChainTest.class);
+        var chainTest = ShrikeIoC.find(ChainTest.class);
 
         assertEquals("1 2 3", chainTest.execute(), "Wrong Chain");
     }
 
     @Test
     public void testComponentChild() throws IOException {
-        var instance = Shrike.context();
-
-        var childTest = instance.find(ComponentBaseInterface.class);
+        var childTest = ShrikeIoC.find(ComponentBaseInterface.class);
 
         assertNotNull(childTest);
         assertTrue(childTest instanceof ComponentChild);
@@ -125,10 +114,8 @@ public class IocContextImplTest {
 
     @Test
     public void testInjectContext() {
-        var instance = Shrike.context();
-
-        var ctxInj = instance.find(ContextInject.class);
+        var ctxInj = ShrikeIoC.find(ContextInject.class);
         assertNotNull(ctxInj.getAppCtx());
-        assertEquals(instance, ctxInj.getAppCtx());
+        assertEquals(ShrikeIoC.context(), ctxInj.getAppCtx());
     }
 }

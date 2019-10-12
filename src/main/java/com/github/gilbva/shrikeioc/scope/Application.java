@@ -19,6 +19,8 @@ package com.github.gilbva.shrikeioc.scope;
 /**
  * This class represents the application scope witch is the root context of
  * Shrike IoC.
+ *
+ * @author Gilberto Vento
  */
 public final class Application implements Scope {
     private static Application INSTANCE;

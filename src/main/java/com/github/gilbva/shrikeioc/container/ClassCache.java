@@ -26,6 +26,13 @@ import com.github.gilbva.shrikeioc.annotations.Inject;
 import com.github.gilbva.shrikeioc.annotations.InjectNext;
 import com.github.gilbva.shrikeioc.annotations.ComponentInit;
 
+/**
+ * This class is used to store in memory the fields constructors
+ * and methods that are relevant to the framework of the given
+ * class.
+ *
+ * @author Gilberto Vento
+ */
 class ClassCache {
     private final List<Field> injectFields;
 

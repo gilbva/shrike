@@ -20,6 +20,8 @@ import com.github.gilbva.shrikeioc.context.IocContextListener;
 
 /**
  * The base interface that all shrike ioc scope classes must implement.
+ *
+ * @author Gilberto Vento
  */
 public interface Scope extends IocContextListener<Object> {
 }

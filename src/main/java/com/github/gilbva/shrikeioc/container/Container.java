@@ -20,8 +20,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * This class is resposable for holding references to the instanciated
+ * This class is responsable for holding references to the instantiated
  * components in a ioc context.
+ *
+ * @author Gilberto Vento
  */
 class Container {
     /**
@@ -38,7 +40,7 @@ class Container {
     /**
      * The constuctor for this container.
      *
-     * @param creator   The instance of the object whos resposability will be to
+     * @param creator   The instance of the object whose responsibility will be to
      *                  create the components.
      * @param instances The components that are already instantiated.
      */
@@ -51,10 +53,10 @@ class Container {
     }
 
     /**
-     * Determines if a omponent is alrready instantiated in this container.
+     * Determines if a component is already instantiated in this container.
      *
      * @param cls The class of the component.
-     * @return true the component is alrready instantiated, false othewise.
+     * @return true the component is already instantiated, false otherwise.
      */
     public boolean contains(Class cls) {
         return components.containsKey(cls);
@@ -72,7 +74,7 @@ class Container {
     }
 
     /**
-     * Creates a component using the internar instanciator, and put it in the
+     * Creates a component using the internal instantiator, and put it in the
      * internal map for future use.
      *
      * @param <T> The type of the component.
@@ -80,7 +82,7 @@ class Container {
      * @return The new create component of null if the component cannot be
      * created.
      */
-    public <T> T create(Class<T> cls) {
+    <T> T create(Class<T> cls) {
         if (components.containsKey(cls)) {
             return (T) components.get(cls);
         } else {

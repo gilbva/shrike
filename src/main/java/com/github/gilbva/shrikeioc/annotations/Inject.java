@@ -26,6 +26,8 @@ import java.lang.annotation.Target;
  * dependency, the container will find (any/all) components that provides the
  * service and inject the instance of it in this field. Cannot be use in static
  * fields, but it may be use in parent classes of components.
+ *
+ * @author Gilberto Vento
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)

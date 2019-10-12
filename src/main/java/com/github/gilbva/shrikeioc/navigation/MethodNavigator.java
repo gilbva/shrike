@@ -26,6 +26,8 @@ import java.lang.reflect.Method;
  *
  * @param <A> The annotation that the methods must have in other to be accept by
  *            the navigator.
+ *
+ * @author Gilberto Vento
  */
 @FunctionalInterface
 public interface MethodNavigator<A extends Annotation> {

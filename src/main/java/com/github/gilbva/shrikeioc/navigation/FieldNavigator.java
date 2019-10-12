@@ -26,6 +26,8 @@ import java.lang.reflect.Field;
  *
  * @param <A> The annotation that the fields must have in other to be accept by
  *            the navigator.
+ *
+ * @author Gilberto Vento
  */
 @FunctionalInterface
 public interface FieldNavigator<A extends Annotation> {

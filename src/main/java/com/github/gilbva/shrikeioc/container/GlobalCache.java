@@ -19,6 +19,12 @@ package com.github.gilbva.shrikeioc.container;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * This singleton class holds the data of the components of all the
+ * scopes.
+ *
+ * @author Gilberto Vento
+ */
 class GlobalCache {
     private static GlobalCache INSTANCE;
 

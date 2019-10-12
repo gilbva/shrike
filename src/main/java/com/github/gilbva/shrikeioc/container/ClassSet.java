@@ -31,9 +31,11 @@ import com.github.gilbva.shrikeioc.navigation.FieldNavigator;
 import com.github.gilbva.shrikeioc.navigation.MethodNavigator;
 
 /**
- * This class represents a set of classes, his propouse is to serve as a
- * container for all the class that are to be managed by an IocContext instance.
+ * This class represents a set of classes, his purpose is to serve as a
+ * container for all the classes that must be handled by an IocContext instance.
  * <p>
+ *
+ * @author Gilberto Vento
  */
 class ClassSet implements Iterable<Class<?>>, ClassRepository {
     /**

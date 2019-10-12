@@ -14,44 +14,59 @@
  * limitations under the License.
  */
 
-package com.github.gilbva.shrikeioc.context;
+package com.github.gilbva.shrikeioc;
 
-import com.github.gilbva.shrikeioc.annotations.Inject;
+import com.github.gilbva.shrikeioc.container.IocContextFactoryImpl;
+import com.github.gilbva.shrikeioc.context.IocContext;
+import com.github.gilbva.shrikeioc.context.IocContextFactory;
 import com.github.gilbva.shrikeioc.navigation.ClassRepository;
+import com.github.gilbva.shrikeioc.scope.Application;
 import com.github.gilbva.shrikeioc.scope.Scope;
 
 import java.io.PrintWriter;
 import java.lang.reflect.Type;
 
 /**
- * Represents a context in witch components are managed. This interface is mean
- * to be use (not for implementation), it brings all the method necessaries for
- * find components and services in the scope that it manages.
+ * Facade for the Shrike IoC API.
  * <p>
- * An implementation of this interface can be obtained via the Ioc interface or
- * by injecting {@link Inject} it in any component
- * you want.
- *
- * @param <S> The type for the scope class for this context.
+ * This class provides the method context() which will deliver the IocContext
+ * for the application scope.
  *
  * @author Gilberto Vento
  */
-public interface IocContext<S extends Scope> {
-    /**
-     * Gets the scope of the current context.
-     *
-     * @return An string object representing the scope name used for this
-     * context.
-     */
-    public S getScope();
+public class ShrikeIoC {
+    private static IocContext<Application> appContext;
+
+    private static IocContextFactory findFactory() {
+        return IocContextFactoryImpl.getInstance();
+    }
 
     /**
-     * Gets the scope of the current context.
-     *
-     * @return An string object representing the scope name used for this
-     * context.
+     * Private constructor so this object cannot be instantiated.
      */
-    Class<S> getScopeClass();
+    private ShrikeIoC() {
+    }
+
+    /**
+     * This method returns the {@link IocContext} for the APPLICATION scoped
+     * {@link IocContext}.
+     * <p>
+     *
+     * @return The APPLICATION scoped {@link IocContext} instance for this
+     * application.
+     */
+    public static IocContext<Application> context() {
+        if (appContext == null) {
+            var factory = findFactory();
+            if (factory == null) {
+                String message = "IoC container provider service was not found on the class path.";
+                message += " You must include an IoC container dependency like 'shrike-ioc-container' in your class path.";
+                throw new IllegalStateException(message);
+            }
+            appContext = factory.createApplicationContext(Application.getInstance());
+        }
+        return appContext;
+    }
 
     /**
      * This method finds the highest priority component that provides the given
@@ -66,7 +81,9 @@ public interface IocContext<S extends Scope> {
      * @return An object that extends or implement the class of the service
      * provided, or null if no component provides this services in the context.
      */
-    <T> T find(Class<T> service);
+    public static <T> T find(Class<T> service) {
+        return context().find(service);
+    }
 
     /**
      * This method finds the component that provides the given service with less
@@ -84,7 +101,9 @@ public interface IocContext<S extends Scope> {
      * @return An object that extends or implement the class of the service
      * provided, or null if no component provides this services in the context.
      */
-    <T> T findNext(Class<T> service, int priority);
+    public static <T> T findNext(Class<T> service, int priority) {
+        return context().findNext(service, priority);
+    }
 
     /**
      * This method finds all the components that provides the given service.
@@ -99,7 +118,9 @@ public interface IocContext<S extends Scope> {
      * service provided, or an empty array if no component provides this
      * services in the context.
      */
-    <T> T[] findAll(Class<T> service);
+    public static <T> T[] findAll(Class<T> service) {
+        return context().findAll(service);
+    }
 
     /**
      * This method finds the highest priority component that provides the given
@@ -112,7 +133,9 @@ public interface IocContext<S extends Scope> {
      * @return An object that extends or implement the service provided, or null
      * if no component provides this services in the context.
      */
-    Object findGeneric(Type service);
+    public static Object findGeneric(Type service) {
+        return context().findGeneric(service);
+    }
 
     /**
      * This method finds the component that provides the given generic service
@@ -128,7 +151,9 @@ public interface IocContext<S extends Scope> {
      * @return An object that extends or implement the service provided, or null
      * if no component provides this services in the context.
      */
-    Object findNextGeneric(Type service, int priority);
+    public static Object findNextGeneric(Type service, int priority) {
+        return context().findNextGeneric(service, priority);
+    }
 
     /**
      * This method finds if a service is provided by a least one component in
@@ -140,7 +165,9 @@ public interface IocContext<S extends Scope> {
      * @return {@literal true} If at least one component provides this service,
      * {@literal false} otherwise.
      */
-    boolean exists(Type service);
+    public static boolean exists(Type service) {
+        return context().exists(service);
+    }
 
     /**
      * This method finds if the given class is a component of the context.
@@ -151,7 +178,9 @@ public interface IocContext<S extends Scope> {
      * @return {@literal true} If this class represents a component of the
      * context, {@literal false} otherwise.
      */
-    boolean existsComponent(Class<?> component);
+    boolean existsComponent(Class<?> component) {
+        return context().existsComponent(component);
+    }
 
     /**
      * The parent of this context.
@@ -160,7 +189,9 @@ public interface IocContext<S extends Scope> {
      * @return The IocContext instance representing the parent of this context,
      * or null if this context has no parent.
      */
-    IocContext<?> getParent();
+    public static IocContext<?> getParent() {
+        return context().getParent();
+    }
 
     /**
      * Create a child IocContext of this context.
@@ -170,7 +201,9 @@ public interface IocContext<S extends Scope> {
      * @param scope The scope of the new context.
      * @return The new IocContext instance created as child of this context.
      */
-    <T extends Scope> IocContext<T> createChild(T scope);
+    public static <T extends Scope> IocContext<T> createChild(T scope) {
+        return context().createChild(scope);
+    }
 
     /**
      * Obtains the class repository associated with this context. that allows to
@@ -179,7 +212,9 @@ public interface IocContext<S extends Scope> {
      *
      * @return A ClassRepository instance
      */
-    ClassRepository getClassRepository();
+    public static ClassRepository getClassRepository() {
+        return context().getClassRepository();
+    }
 
     /**
      * Prints all the implementations of the services with its priorities.
@@ -187,5 +222,7 @@ public interface IocContext<S extends Scope> {
      * @param service The service to lookup.
      * @param writer  The writer to print the result.
      */
-    void printPriorities(Class<?> service, PrintWriter writer);
+    void printPriorities(Class<?> service, PrintWriter writer) {
+        context().printPriorities(service, writer);
+    }
 }

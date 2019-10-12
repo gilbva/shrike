@@ -26,6 +26,8 @@ import java.lang.annotation.Target;
  * highest priority component. The container will use this annotation to find
  * out the default implementation (the one with highest priority) for the given
  * service.
+ *
+ * @author Gilberto Vento
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)

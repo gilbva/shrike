@@ -28,6 +28,8 @@ import com.github.gilbva.shrikeioc.annotations.Component;
 
 /**
  * Annotations processor for the {@link Component} annotation.
+ *
+ * @author Gilberto Vento
  */
 @SupportedAnnotationTypes("com.github.gilbva.shrikeioc.annotations.Component")
 @SupportedSourceVersion(SourceVersion.RELEASE_11)

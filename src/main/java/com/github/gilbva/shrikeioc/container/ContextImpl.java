@@ -29,6 +29,14 @@ import com.github.gilbva.shrikeioc.scope.Application;
 import com.github.gilbva.shrikeioc.navigation.ClassRepository;
 import com.github.gilbva.shrikeioc.scope.Scope;
 
+/**
+ * The main container of the IoC framework, an instance of this class is created to
+ * manage the components of the given scope.
+ *
+ * @author Gilberto Vento
+ *
+ * @param <S> The scope of the context.
+ */
 final class ContextImpl<S extends Scope> implements IocContext<S> {
     private static final Logger LOG = Logger.getLogger(ContextImpl.class.getName());
 
@@ -258,7 +266,7 @@ final class ContextImpl<S extends Scope> implements IocContext<S> {
         return "IocContext: " + scope;
     }
 
-    public ClassCache findCache(Class<?> cls) {
+    ClassCache findCache(Class<?> cls) {
         return cache.getCache(cls);
     }
 }

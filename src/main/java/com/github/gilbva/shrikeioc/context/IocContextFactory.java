@@ -20,6 +20,8 @@ import com.github.gilbva.shrikeioc.scope.Application;
 
 /**
  * Factory service for the application IoC context.
+ *
+ * @author Gilberto Vento
  */
 public interface IocContextFactory {
     /**

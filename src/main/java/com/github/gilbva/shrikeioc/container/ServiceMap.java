@@ -29,6 +29,8 @@ import com.github.gilbva.shrikeioc.context.IocContext;
 
 /**
  * An object to keep track of the services of the components.
+ *
+ * @author Gilberto Vento
  */
 class ServiceMap {
     /**

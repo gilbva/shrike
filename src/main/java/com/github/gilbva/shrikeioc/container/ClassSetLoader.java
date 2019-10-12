@@ -33,6 +33,12 @@ import java.util.jar.JarFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * This class stores and organize the clases of the register
+ * components.
+ *
+ * @author Gilberto Vento
+ */
 class ClassSetLoader {
     private static final Logger LOG = Logger.getLogger(ClassSetLoader.class.getName());
 

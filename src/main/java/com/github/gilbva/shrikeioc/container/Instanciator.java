@@ -27,6 +27,11 @@ import com.github.gilbva.shrikeioc.context.IocContextListener;
 import com.github.gilbva.shrikeioc.annotations.Inject;
 import com.github.gilbva.shrikeioc.annotations.InjectNext;
 
+/**
+ * This class is responsable of the creation of the components.
+ *
+ * @author Gilberto Vento
+ */
 class Instanciator {
     private static final Logger LOG = Logger.getLogger(Instanciator.class.getName());
 

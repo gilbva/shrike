@@ -21,6 +21,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Cache for scope classes.
+ *
+ * @author Gilberto Vento
  */
 class ScopeCache {
     private final Map<Class<?>, ClassCache> classMap;

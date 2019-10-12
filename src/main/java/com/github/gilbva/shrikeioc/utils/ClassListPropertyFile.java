@@ -32,6 +32,8 @@ import javax.tools.StandardLocation;
 
 /**
  * Base class for the annotations processors that handle components declaration files.
+ *
+ * @author Gilberto Vento
  */
 public abstract class ClassListPropertyFile extends AbstractProcessor {
     private Writer writer;

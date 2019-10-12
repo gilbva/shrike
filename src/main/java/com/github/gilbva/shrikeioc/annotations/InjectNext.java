@@ -25,6 +25,8 @@ import java.lang.annotation.Target;
  * This annotation behaves in the same way as the {@link Inject} annotation
  * except that it will look only for components that has a priority value bigger than
  * the current component.
+ *
+ * @author Gilberto Vento
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)

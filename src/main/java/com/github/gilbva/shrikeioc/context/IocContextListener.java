@@ -27,6 +27,8 @@ package com.github.gilbva.shrikeioc.context;
  * methods of the interface in the propper place.
  * </p>
  *
+ * @author Gilberto Vento
+ *
  * @param <T> Component class that you want listen.
  *            <p>
  *            <b>EXAMPLES</b>

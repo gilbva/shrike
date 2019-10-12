@@ -27,6 +27,8 @@ import java.lang.annotation.Target;
  * after all or most dependency fields are injected. WARNING the component may
  * not have all of its dependencies injected at the moment of the call of this
  * method for components that have some kind of circular dependencies.
+ *
+ * @author Gilberto Vento
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

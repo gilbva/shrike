@@ -23,6 +23,8 @@ import java.lang.annotation.Annotation;
 /**
  * Represents the collection of classes being used by {@link IocContext} to
  * create and manage components.
+ *
+ * @author Gilberto Vento
  */
 public interface ClassRepository {
     /**

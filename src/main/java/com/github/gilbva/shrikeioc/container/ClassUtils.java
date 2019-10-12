@@ -40,6 +40,8 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * Utility method for class and type handling.
+ *
+ * @author Gilberto Vento
  */
 public class ClassUtils {
     private static final String JAVA_PACKAGE_PREFIX = "java.";
