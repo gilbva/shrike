@@ -4,7 +4,7 @@
 
     <groupId>me.gilbva</groupId>
     <artifactId>shrikeioc</artifactId>
-    <version>0.1</version>
+    <version>0.2-SNAPSHOT</version>
 
     <name>ShrikeIoC</name>
     <description>Simple, minimalist, lightweight, Inversion of Control and Dependency Injection Framework for Java 11+</description>
@@ -26,7 +26,7 @@
         <url>https://github.com/gilbva/shrikeioc</url>
         <connection>scm:git:https://github.com/gilbva/shrikeioc.git</connection>
         <developerConnection>scm:git:https://github.com/gilbva/shrikeioc.git</developerConnection>
-        <tag>v0.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
