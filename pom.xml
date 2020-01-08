@@ -37,12 +37,12 @@
     <distributionManagement>
         <repository>
             <id>gilbva-release</id>
-            <url>https://maven.gilbva.me/repository/maven-snapshots/</url>
+            <url>https://maven.gilbva.me/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <uniqueVersion>true</uniqueVersion>
             <id>gilbva-snapshots</id>
-            <url>https://maven.gilbva.me/repository/maven-releases/</url>
+            <url>https://maven.gilbva.me/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -173,11 +173,11 @@
     <repositories>
         <repository>
             <id>gilbva-release</id>
-            <url>https://maven.gilbva.me/repository/maven-snapshots/</url>
+            <url>https://maven.gilbva.me/repository/maven-releases/</url>
         </repository>
         <repository>
             <id>gilbva-snapshots</id>
-            <url>https://maven.gilbva.me/repository/maven-releases/</url>
+            <url>https://maven.gilbva.me/repository/maven-snapshots/</url>
         </repository>
     </repositories>
 
