@@ -21,7 +21,7 @@ The API can be used from central repository:
 ## Components
 **ShrikeIoC** manages the concept of components, a component is a java annotated class (with the **@Component** annotation), **ShrikeIoC** will instantiate this class for you when it is required. A component class may be declared as public, but if you desire to hide the class from other package it may be declared as private too. A **ShrikeIoC** component looks like this:
 ```java
-import com.github.gilbva.shrikeioc.annotations.Component;
+import Component;
 
 @Component
 class MyComponent
@@ -32,8 +32,8 @@ class MyComponent
 ## Components Injection
 The Components can depend on other components, when this is the case **ShrikeIoC** will inject the dependencies so you don't have to worry about it. For this purpouse we use the **@Inject** annotation like this:
 ```java
-import com.github.gilbva.shrikeioc.annotations.Component;
-import com.github.gilbva.shrikeioc.annotations.Inject;
+import Component;
+import Inject;
 
 @Component
 class OtherComponent
@@ -60,9 +60,9 @@ public class Main
 ## Initialization
 When a component is created sometimes you'll need to do some work with it upon initialization, this can be done with the **ComponentInit** java standard annotation.
 ```java
-import com.github.gilbva.shrikeioc.annotations.Component;
-import com.github.gilbva.shrikeioc.annotations.Inject;
-import com.github.gilbva.shrikeioc.annotations.ComponentInit;
+import Component;
+import Inject;
+import ComponentInit;
 
 @Component
 class OtherComponent
@@ -80,8 +80,8 @@ class OtherComponent
 
 You should use the **ComponentInit** annotation for components initialization because without the constructor the dependencies are not already injected.
 ```java
-import com.github.gilbva.shrikeioc.annotations.Component;
-import com.github.gilbva.shrikeioc.annotations.Inject;
+import Component;
+import Inject;
 
 @Component
 class OtherComponent
@@ -99,8 +99,8 @@ class OtherComponent
 All components must have a default constructor otherwise the component cannot be created. The framework will treat any component without a default constructor as if it does not exists.
 
 ```java
-import com.github.gilbva.shrikeioc.annotations.Component;
-import com.github.gilbva.shrikeioc.annotations.Inject;
+import Component;
+import Inject;
 
 @Component
 class OtherComponent
