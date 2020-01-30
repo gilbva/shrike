@@ -46,7 +46,7 @@ class OtherComponent
 ## Shrike.find
 The components you declare will never be created until it is needed. So from any program to do something with components at least one component must be obtained through the **Shrike.find()** method like this:
 ```java
-import com.github.gilbva.shrike.annotations.Ioc;
+import me.gilbva.shrike.annotations.Ioc;
 
 public class Main
 {
@@ -271,7 +271,7 @@ class MyComponent
 ```
 
 ## Scopes 
-And scope is a class that determines which components are handled in a context. The scopes need to implement the **com.github.gilbva.shrike.annotations.Scope** interface like this:
+And scope is a class that determines which components are handled in a context. The scopes need to implement the **me.gilbva.shrike.annotations.Scope** interface like this:
 
 ```java
 public class MyScopeObject implements Scope
