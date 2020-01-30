@@ -3,17 +3,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.gilbva</groupId>
-    <artifactId>shrikeioc</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <artifactId>shrike</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-    <name>ShrikeIoC</name>
+    <name>Shrike</name>
     <description>Simple, minimalist, lightweight, Inversion of Control and Dependency Injection Framework for Java 11+</description>
     <url>https://github.com/gilbva/shrike</url>
 
     <inceptionYear>2019</inceptionYear>
     <organization>
-        <name>ShrikeIoC</name>
-        <url>https://github.com/gilbva/shrikeioc</url>
+        <name>Shrike</name>
+        <url>https://github.com/gilbva/shrike</url>
     </organization>
 
     <properties>
@@ -23,26 +23,26 @@
     </properties>
 
     <scm>
-        <url>https://github.com/gilbva/shrikeioc</url>
-        <connection>scm:git:https://github.com/gilbva/shrikeioc.git</connection>
-        <developerConnection>scm:git:https://github.com/gilbva/shrikeioc.git</developerConnection>
+        <url>https://github.com/gilbva/shrike</url>
+        <connection>scm:git:https://github.com/gilbva/shrike.git</connection>
+        <developerConnection>scm:git:https://github.com/gilbva/shrike.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
         <system>github</system>
-        <url>https://github.com/gilbva/shrikeioc/issues</url>
+        <url>https://github.com/gilbva/shrike/issues</url>
     </issueManagement>
 
     <distributionManagement>
         <repository>
-            <id>gilbva-releases</id>
-            <url>https://maven.gilbva.me/repository/maven-releases/</url>
+            <id>sonatype-releases</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
         <snapshotRepository>
             <uniqueVersion>true</uniqueVersion>
-            <id>gilbva-snapshots</id>
-            <url>https://maven.gilbva.me/repository/maven-snapshots/</url>
+            <id>sonatype-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -170,14 +170,15 @@
         </dependency>
     </dependencies>
 
+
     <repositories>
         <repository>
-            <id>gilbva-release</id>
-            <url>https://maven.gilbva.me/repository/maven-releases/</url>
+            <id>sonatype-releases</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
         <repository>
-            <id>gilbva-snapshots</id>
-            <url>https://maven.gilbva.me/repository/maven-snapshots/</url>
+            <id>sonatype-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </repository>
     </repositories>
 

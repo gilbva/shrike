@@ -1,4 +1,4 @@
-# ShrikeIoC
+# Shrike
 
 Simple, minimalist, lightweight, Inversion of Control and Dependency Injection Framework for Java 11+
 
@@ -11,7 +11,7 @@ The API can be used from central repository:
         ....
         <dependency>
             <groupId>com.github.gilbva</groupId>
-            <artifactId>shrikeioc</artifactId>
+            <artifactId>shrike</artifactId>
             <version>1.0</version>
         </dependency>
         ....
@@ -19,7 +19,7 @@ The API can be used from central repository:
 ```
 
 ## Components
-**ShrikeIoC** manages the concept of components, a component is a java annotated class (with the **@Component** annotation), **ShrikeIoC** will instantiate this class for you when it is required. A component class may be declared as public, but if you desire to hide the class from other package it may be declared as private too. A **ShrikeIoC** component looks like this:
+**Shrike** manages the concept of components, a component is a java annotated class (with the **@Component** annotation), **Shrike** will instantiate this class for you when it is required. A component class may be declared as public, but if you desire to hide the class from other package it may be declared as private too. A **Shrike** component looks like this:
 ```java
 import Component;
 
@@ -30,7 +30,7 @@ class MyComponent
 ```
 
 ## Components Injection
-The Components can depend on other components, when this is the case **ShrikeIoC** will inject the dependencies so you don't have to worry about it. For this purpouse we use the **@Inject** annotation like this:
+The Components can depend on other components, when this is the case **Shrike** will inject the dependencies so you don't have to worry about it. For this purpouse we use the **@Inject** annotation like this:
 ```java
 import Component;
 import Inject;
@@ -43,10 +43,10 @@ class OtherComponent
 }
 ```
 
-## ShrikeIoC.find
-The components you declare will never be created until it is needed. So from any program to do something with components at least one component must be obtained through the **ShrikeIoC.find()** method like this:
+## Shrike.find
+The components you declare will never be created until it is needed. So from any program to do something with components at least one component must be obtained through the **Shrike.find()** method like this:
 ```java
-import com.github.gilbva.shrikeioc.annotations.Ioc;
+import com.github.gilbva.shrike.annotations.Ioc;
 
 public class Main
 {
@@ -116,7 +116,7 @@ class OtherComponent
 
 # Services
 
-A service in **ShrikeIoC** is nothing else than a class or generic type used to inject components that extends from or implement it. If a component extends from a class or implements an interface, it is said that the component provides that service.
+A service in **Shrike** is nothing else than a class or generic type used to inject components that extends from or implement it. If a component extends from a class or implements an interface, it is said that the component provides that service.
 
 ```java
 public interface MyService
@@ -151,10 +151,10 @@ class OtherComponent
 }
 ```
 
-The purpose of **ShrikeIoC** is to provide this kind of behavior of loose coupling. So you can write components depending on the specifications and not the implementation.
+The purpose of **Shrike** is to provide this kind of behavior of loose coupling. So you can write components depending on the specifications and not the implementation.
 
 ## Generic Services
-The services can be generic types and **ShrikeIoC** will take notice of this, so you can have something like the following:
+The services can be generic types and **Shrike** will take notice of this, so you can have something like the following:
 ```java
 public interface MyService<T>
 {
@@ -180,7 +180,7 @@ class OtherComponent
     @PostConstruct
     public void init()
     {
-        serv.doSomething("ShrikeIoC Framework");
+        serv.doSomething("Shrike Framework");
     }
 }
 ```
@@ -271,7 +271,7 @@ class MyComponent
 ```
 
 ## Scopes 
-And scope is a class that determines which components are handled in a context. The scopes need to implement the **com.github.gilbva.shrikeioc.annotations.Scope** interface like this:
+And scope is a class that determines which components are handled in a context. The scopes need to implement the **com.github.gilbva.shrike.annotations.Scope** interface like this:
 
 ```java
 public class MyScopeObject implements Scope
