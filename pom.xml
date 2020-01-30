@@ -4,7 +4,7 @@
 
     <groupId>me.gilbva</groupId>
     <artifactId>shrike</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
 
     <name>Shrike</name>
     <description>Simple, minimalist, lightweight, Inversion of Control and Dependency Injection Framework for Java 11+</description>
@@ -26,7 +26,7 @@
         <url>https://github.com/gilbva/shrike</url>
         <connection>scm:git:https://github.com/gilbva/shrike.git</connection>
         <developerConnection>scm:git:https://github.com/gilbva/shrike.git</developerConnection>
-        <tag>v1.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
