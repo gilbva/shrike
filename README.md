@@ -10,7 +10,7 @@ The API can be used from central repository:
     <dependencies>
         ....
         <dependency>
-            <groupId>com.github.gilbva</groupId>
+            <groupId>me.gilbva</groupId>
             <artifactId>shrike</artifactId>
             <version>1.0</version>
         </dependency>
