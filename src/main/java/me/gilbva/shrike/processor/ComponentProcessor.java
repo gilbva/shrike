@@ -32,7 +32,7 @@ import me.gilbva.shrike.annotations.Component;
  * @author Gilberto Vento
  */
 @SupportedAnnotationTypes("me.gilbva.shrike.annotations.Component")
-@SupportedSourceVersion(SourceVersion.RELEASE_11)
+@SupportedSourceVersion(SourceVersion.RELEASE_15)
 public class ComponentProcessor extends ClassListPropertyFile {
     /**
      * IOC Components declaration file.

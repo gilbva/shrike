@@ -184,6 +184,10 @@ class ClassSetLoader {
                         .forEach(path ->
                         {
                             int lastIndex = path.toString().lastIndexOf("META-INF/shrike");
+                            if(lastIndex == -1) {
+                                lastIndex = path.toString().lastIndexOf("META-INF\\shrike");
+                            }
+                            System.out.println(lastIndex + " " + path.toString());
                             String name = path.toString().substring(lastIndex);
                             result.add(name);
                         });

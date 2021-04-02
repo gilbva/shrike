@@ -25,6 +25,11 @@ package me.gilbva.shrike.scope;
 public final class Application implements Scope {
     private static Application INSTANCE;
 
+    /**
+     * Gets the internal Application instance.
+     *
+     * @return The internal Application instance.
+     */
     public static Application getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new Application();
