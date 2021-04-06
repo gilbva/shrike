@@ -12,10 +12,19 @@ The API can be used from central repository:
         <dependency>
             <groupId>me.gilbva</groupId>
             <artifactId>shrike</artifactId>
-            <version>1.0</version>
+            <version>1.1</version>
         </dependency>
         ....
     </dependencies>
+```
+Or with gradle
+
+```gradle
+dependencies {
+    ...
+    implementation 'me.gilbva:shrike:1.1'
+    ...
+}
 ```
 
 ## Components
