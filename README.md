@@ -7,13 +7,27 @@ Simple, minimalist, lightweight, Inversion of Control and Dependency Injection F
 The API can be used from central repository:
 
 ```xml
-    <annotationProcessorPaths>
-	<path>
-            <groupId>me.gilbva</groupId>
-            <artifactId>shrike</artifactId>
-            <version>1.1</version>
-	</path>
-    </annotationProcessorPaths>
+<build>
+    <plugins>
+        ....
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+	    ....
+            <configuration>
+	        <annotationProcessorPaths>
+		    <path>
+		        <groupId>me.gilbva</groupId>
+		        <artifactId>shrike</artifactId>
+		        <version>1.1</version>
+		    </path>
+	        </annotationProcessorPaths>
+	    </configuration>
+        </plugin>
+	....
+    </plugins>
+</build>
+
 
     <dependencies>
         ....
