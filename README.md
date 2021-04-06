@@ -7,6 +7,14 @@ Simple, minimalist, lightweight, Inversion of Control and Dependency Injection F
 The API can be used from central repository:
 
 ```xml
+    <annotationProcessorPaths>
+	<path>
+            <groupId>me.gilbva</groupId>
+            <artifactId>shrike</artifactId>
+            <version>1.1</version>
+	</path>
+    </annotationProcessorPaths>
+
     <dependencies>
         ....
         <dependency>
@@ -23,6 +31,7 @@ Or with gradle
 dependencies {
     ...
     implementation 'me.gilbva:shrike:1.1'
+    annotationProcessor 'me.gilbva:shrike:1.1'
     ...
 }
 ```
